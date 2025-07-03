@@ -1,0 +1,128 @@
+# 🔐 Secure File Share – Backend System
+
+This is a secure file-sharing backend system built with **FastAPI**, implementing access control between two types of users – **Ops Users** and **Client Users**.
+
+This project was built as a solution to the Back-End Intern Test, and includes full authentication, file upload/download logic, encrypted URL generation, and access control.
+
+---
+
+## 📦 Features
+
+### 🧑‍💼 Ops User (Operation Staff)
+- ✅ Login
+- ✅ Upload files (Only `.pptx`, `.docx`, `.xlsx`)
+- ✅ File type and user validation
+
+### 👤 Client User
+- ✅ Sign Up (returns encrypted download URL)
+- ✅ Email Verification
+- ✅ Login
+- ✅ Download file (via secure URL)
+- ✅ List all uploaded files
+
+---
+
+## 🔐 Security & Access Control
+- ✅ JWT Authentication for both user types
+- ✅ Encrypted download URLs (only valid for client users)
+- ✅ Role-based restrictions:
+  - Only Ops users can upload
+  - Only Client users can download
+  - Download links are protected from unauthorized access
+
+---
+
+## 🧪 Test Coverage
+Includes basic test cases for:
+- Signup/Login
+- Upload/Download access control
+- URL encryption and validation
+
+---
+
+## 🗃️ Tech Stack
+| Tool         | Purpose                          |
+|--------------|----------------------------------|
+| **FastAPI**  | Web framework                    |
+| **SQLAlchemy** | ORM and DB interaction         |
+| **SQLite / PostgreSQL** | Database (can switch easily) |
+| **JWT**      | Token-based authentication       |
+| **Pydantic** | Request/response data validation |
+| **Passlib**  | Password hashing                 |
+| **PyCryptodome** | Secure URL encryption         |
+
+---
+
+## 📂 Project Structure
+
+secure_file_share/
+├── apps/
+│ ├── main.py
+│ ├── routes/
+│ │ ├── ops.py
+│ │ ├── client.py
+│ ├── models/
+│ ├── database.py
+│ ├── schemas/
+│ └── utils/
+├── requirements.txt
+├── README.md
+└── test_cases/
+
+
+---
+
+## 🔁 API Endpoints
+
+| Endpoint                          | Method | Role       | Description                            |
+|----------------------------------|--------|------------|----------------------------------------|
+| `/ops/login`                     | POST   | Ops        | Ops user login                         |
+| `/ops/upload`                    | POST   | Ops        | Upload file (`.docx`, `.pptx`, `.xlsx`)|
+| `/client/signup`                 | POST   | Client     | Register and get encrypted download URL|
+| `/client/verify-email`          | POST   | Client     | Verify email with token/link           |
+| `/client/login`                 | POST   | Client     | Client login                           |
+| `/client/download/{file_id}`    | GET    | Client     | Get download link (encrypted URL)      |
+| `/client/files`                 | GET    | Client     | List uploaded files                    |
+
+---
+
+## 🚀 Deployment Plan
+
+> To deploy this app in production:
+
+- Use **Docker** to containerize the FastAPI app
+- Use **Gunicorn + Uvicorn** workers
+- Deploy on **Render / Railway / Heroku / AWS EC2**
+- Set up **HTTPS (SSL)** for secure communication
+- Store files using **cloud storage** (e.g., S3 or GCP Bucket)
+- Use **PostgreSQL** instead of SQLite for production use
+
+---
+
+## 🧪 Testing
+
+You can run tests using:
+
+```bash
+pytest
+
+
+Test cases are written to verify:
+
+Upload restrictions
+
+Token verification
+
+Role-based access
+
+File type filtering
+
+URL decryption logic
+
+
+
+📬 Contact
+Ashish Tripathi
+GitHub: Ashish12-tripathi
+Email: akttripathi395@gmail.com
+
