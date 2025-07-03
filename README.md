@@ -1,31 +1,42 @@
-# 🎯 Guess the Number – Python Game
+# 🔐 Secure File Share
 
-A simple command-line number guessing game written in Python.
-
-The program randomly selects a number between **1 and 100**, and the user has **4 attempts** to guess it correctly.
+A secure, FastAPI-based file sharing backend system that allows users to upload, download, and manage files with role-based authentication and JWT authorization.
 
 ---
 
-## 🚀 Features
+## 📦 Features
 
-- Random number between 1 to 100
-- Only 4 guesses allowed
-- Gives hint: Too low / Too high
-- Input validation (handles non-numeric input)
-- Win or lose message after the game ends
-
----
-
-## 🧠 How to Play
-
-1. Run the game.
-2. Enter your guess when prompted.
-3. You’ll get a hint after each try.
-4. Guess the number within 4 attempts to win!
+- ✅ **JWT Authentication** for secure login
+- 🔐 **Role-based access control** (e.g., user, ops)
+- 📁 **Secure file upload & download**
+- 🗃️ **File metadata management**
+- 🧑‍💼 Admin/Operator-level endpoints
+- ⚙️ Built with **FastAPI + SQLAlchemy**
+- 📄 Interactive API Docs using **Swagger (OpenAPI)**
 
 ---
 
-## 🖥️ Run the Program
+## 🚀 Tech Stack
 
-```bash
-python GuessNumber.py
+| Tech            | Description                |
+|----------------|----------------------------|
+| **FastAPI**     | Web framework (backend)    |
+| **SQLAlchemy**  | ORM for database access    |
+| **SQLite / PostgreSQL** | Database engine        |
+| **Pydantic**    | Data validation            |
+| **JWT**         | Authentication/authorization |
+| **Uvicorn**     | ASGI server for FastAPI    |
+
+---
+
+## 🔐 Authentication Flow
+
+- Users authenticate via `/ops/login` with email and password
+- JWT token is issued on success
+- Protected endpoints require the JWT token in `Authorization: Bearer <token>`
+
+---
+
+## 📂 Project Structure
+
+
