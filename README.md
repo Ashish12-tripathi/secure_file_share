@@ -39,4 +39,16 @@ A secure, FastAPI-based file sharing backend system that allows users to upload,
 
 ## 📂 Project Structure
 
-
+  secure_file_share/
+├── apps/
+│ ├── main.py
+│ ├── routes/
+│ │ ├── ops.py
+│ │ ├── client.py
+│ ├── models/
+│ ├── database.py
+│ ├── schemas/
+│ └── utils/
+├── requirements.txt
+├── README.md
+└── test_cases/
